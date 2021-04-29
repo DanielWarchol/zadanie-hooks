@@ -22,9 +22,9 @@ function Form(props) {
     }
     return (
         <div className="color-main">
-            <h1 className="text" value={setTextSubmit}></h1>
+            <h1 className="text" value={setInputImie}></h1>
 
-            <form onSubmit={setInputImie}>
+            <form onSubmit={setTextSubmit}>
                 Imię : <br />
                 <input type="text" value={inputImie} onChange={handleInputImieChange} /> <br />
 
@@ -32,7 +32,7 @@ function Form(props) {
                 <input type="text" /> <br /><br />
 
                 
-                <button type="submit" value={formSubmit}>Wyświetl Dane</button> 
+                <button type="submit" onSubmit={textsubmit}>Wyświetl Dane</button> 
             </form>
         </div>
     )
