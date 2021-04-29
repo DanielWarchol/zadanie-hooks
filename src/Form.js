@@ -3,28 +3,36 @@ import './Form.css';
 
 function Form(props) {
 
-    const [textbtn, setTextBtn] = useState('h1');
+    const [inputImie, setInputImie] = useState('h1');
     const [textsubmit , setTextSubmit] = useState(props.initValue);
+    const [inputImie , setInputImie] = useState('');
 
-    const changeSubmit = () => {
-        setTextSubmit((prevSubmit) => {
-            return prevSubmit + textsubmit;
-        })
+    const handleInputImieChange = (event) => {
+        setInputImie(event.target.value)
     }
        
+    const formSubmit = (event) => {
+        event.preventDefault();
+    }
+
+    const changeSubmit = () => {
+        setTextSubmit((prevSubmit)=> {
+            return prevSubmit + textsubmit;
+        });
+    }
     return (
         <div className="color-main">
-            <h1 className="text" onChange={textbtn}></h1>
+            <h1 className="text" value={setTextSubmit}></h1>
 
-            <form onSubmit={setTextBtn}>
+            <form onSubmit={setInputImie}>
                 Imię : <br />
-                <input type="text" /> <br />
+                <input type="text" value={inputImie} onChange={handleInputImieChange} /> <br />
 
                 Nazwisko : <br />
                 <input type="text" /> <br /><br />
 
                 
-                <button type="submit" onClick={changeSubmit}>Wyświetl Dane</button> 
+                <button type="submit" value={formSubmit}>Wyświetl Dane</button> 
             </form>
         </div>
     )
